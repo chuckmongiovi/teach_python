@@ -29,10 +29,25 @@ def chevron(color,x,y):
     t.forward(7)
     t.penup()
 
+def star8(color,x,y):
+    t.hideturtle()
+    t.penup()
+    t.color(color)
+    t.pensize(2)
+
+    t.setpos(x+5,y)
+    t.setheading(315)
+    t.pendown()
+    t.forward(20)
+    t.penup()
+    
 turtle.bgcolor("black")
 
 chevron(white,0,100)
 chevron(white,0,90)
+
+star8(red,10,0)
+star8(red,50,0)
 
 for x in range(-3,4):
     chevron(blue,x*10,80)
@@ -55,11 +70,16 @@ for x in (-3,-2,-1):
     for y in (0,-1,-2):
        chevron(white,x*10,y*10)
 
-#chev3x3(white,-30,40)
-
-#chev3x3(white,10,40)
-#chev3x3(white,-30,10)
-
-#chev3x3(white,10,40)
+for xx in (-3,1):
+    for yy in (-4,-9):
+        for x in (0,1,2):
+            chevron(grey,(xx+x)*10,yy*10)
+            chevron(grey,(xx+x)*10,(yy-3)*10)
+            if x == 1:
+                color = blue
+            else:
+                color = grey
+            chevron(color,(xx+x)*10,(yy-1)*10)
+            chevron(color,(xx+x)*10,(yy-2)*10)
 
 turtle.mainloop()
